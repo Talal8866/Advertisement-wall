@@ -1,0 +1,25 @@
+<div class="min-h-screen bg-gradient-main">
+    <app-header></app-header>
+    <main class="container py-8 md-py-12">
+        <div class="text-center mb-12 md-mb-16">
+            <h1 class="text-3xl sm-text-4xl md-text-5xl lg-text-7xl font-bold gradient-text mb-4 md-mb-6">جدار الإعلانات
+            </h1>
+            <p class="text-base md-text-xl text-slate-300 max-w-2xl md-max-w-3xl mx-auto leading-relaxed px-4">منصة
+                إعلانات متوافقة مع الشريعة الإسلامية - اعرض إعلانك واصل إلى جمهورك المستهدف
+            </p>
+        </div>
+        <div class="space-y-6 md-space-y-8">
+            <div class=" number-container">
+                <div class="inline-flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm rounded-full px-4 md-px-6 py-2 md-py-3 border border-slate-700 number">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse circle"></div>
+                    <p class="text-slate-300 text-sm md-text-base"> عرض {{"رقم"}} من {{"رقم"}} إعلان</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm-grid-cols-2 lg-grid-cols-3 xl-grid-cols-4 xxl-grid-cols-8 gap-4 md-gap-6">
+                <app-category-card *ngFor="let category of categories" [category]="category"
+                    (click)="navigateToCategory(category.slug)">>
+                </app-category-card>
+            </div>
+        </div>
+    </main>
+</div>

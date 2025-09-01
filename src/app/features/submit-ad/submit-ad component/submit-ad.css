@@ -1,0 +1,24 @@
+h1{
+color: var(--slate-300);
+}
+
+.unique{
+    color: var(--emerald-600);
+}
+
+small{
+    color:crimson;
+    position: relative;
+    top: 10px;
+    right: 37%;
+}
+
+.toast-success {
+  background-color: #16a34a !important;
+  color: #fff;
+}
+
+.toast-error {
+  background-color: #dc2626 !important;
+  color: #fff;
+}

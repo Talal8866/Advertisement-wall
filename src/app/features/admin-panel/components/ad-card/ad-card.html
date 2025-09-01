@@ -1,0 +1,25 @@
+<div class="card mb-4">
+  <div class="p-4">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 relative rounded-lg overflow-hidden bg-slate-100 flex-shrink-0">
+        <img [src]="ad.img" alt="">
+      </div>
+      <div class="flex-1">
+        <div class="flex items-center gap-2 mb-2">
+          <h3 class="font-semibold text-lg text-white">{{ ad.title}}</h3>
+          <span class="badge badge-secondary">{{ad.status}}</span>
+        </div>
+        <div class="text-sm text-slate-400 space-y-1">
+          <p> الهاتف: {{ad.phoneNumber}}</p>
+          <p>البريد: {{ad.email}}</p>
+          <p>الموقع: {{ad.website}}</p>
+        </div>
+      </div>
+      <div class="flex gap-2" *ngIf="status === 'pending'">
+        <lucide-icon name="Check" size="14" class="accept button" (click)="onApprove()"></lucide-icon>
+        <lucide-icon name="X" size="14" class="reject button" (click)="onReject()"></lucide-icon>
+      </div>
+      <lucide-icon  name="Trash2" size="14" class="delete button" *ngIf="status === 'accepted' || status === 'rejected'" (click)="onDelete()"></lucide-icon>
+    </div>
+  </div>
+</div>

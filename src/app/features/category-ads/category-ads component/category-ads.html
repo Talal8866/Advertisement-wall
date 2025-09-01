@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div class="container">
+    <div class="vip">
+        <span>Vip Ads</span>
+        <div class="fr3">
+            <app-vip-card *ngFor=" let ad of vipAds; trackBy: trackById"></app-vip-card>
+        </div>
+    </div>
+    <div class="regular">
+        <span>Regular Ads</span>
+        <div class="fr3">
+            <app-ad-card *ngFor=" let ad of regularAds; trackBy: trackById"></app-ad-card>
+        </div>
+    </div>
+</div>

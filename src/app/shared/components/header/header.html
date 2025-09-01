@@ -1,0 +1,44 @@
+<header class="header">
+    <div class="container py-4 md-py-6">
+        <div class="flex items-center justify-between">
+            <a class="flex items-center gap-2 md-gap-3" routerLink="/">
+                <div
+                    class="w-8 h-8 md-w-10 md-h-10 bg-gradient-logo rounded-lg md-rounded-xl flex items-center justify-center logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="w-4 h-4 md-w-6 md-h-6 text-white">
+                        <path
+                            d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z">
+                        </path>
+                        <path d="M5 3v4"></path>
+                        <path d="M19 17v4"></path>
+                        <path d="M3 5h4"></path>
+                        <path d="M17 19h4"></path>
+                    </svg>
+                </div>
+                <span class="text-lg md-text-2xl font-bold text-white title logo">جدار الإعلانات</span>
+            </a>
+            <nav class="hidden md-flex items-center gap-4">
+                <a class="btn btn-primary icon" routerLink="/submit-ad">
+                    <lucide-icon name="PlusCircle" size="14"></lucide-icon>
+                    أضف إعلانك
+                </a>
+                <a class="btn btn-outline icon" routerLink="/admin-panel">
+                    <lucide-icon name="Settings" size="14"></lucide-icon>
+                    لوحة التحكم
+                </a>
+                <lucide-icon name="Palette" size="14" class="Palette" (click)="toggleTheme()"></lucide-icon>
+            </nav>
+            <div class="flex md-hidden items-center gap-2">
+                <a routerLink="/submit-ad" class="btn btn-primary btn-sm">
+                    <lucide-icon name="PlusCircle" size="14"></lucide-icon>
+                </a>
+                <a routerLink="/admin-panel" class="btn btn-outline btn-sm">
+                    <lucide-icon name="Settings" size="14"></lucide-icon>
+                </a>
+                <lucide-icon name="Palette" size="14" class="Palette" (click)="toggleTheme()"></lucide-icon>
+            </div>
+        </div>
+    </div>
+</header>
+

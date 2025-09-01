@@ -1,0 +1,14 @@
+.container {
+    margin-top: 50px;
+}
+
+.fr3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+app-vip-card,
+app-ad-card {
+    margin-bottom: 20px;
+    justify-self: center;
+}

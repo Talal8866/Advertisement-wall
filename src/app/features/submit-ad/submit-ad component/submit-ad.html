@@ -1,0 +1,137 @@
+<app-header></app-header>
+<div class="min-h-screen bg-gradient-main">
+    <div class="container py-8">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-slate-800 mb-4">أرسل إعلانك</h1>
+                <p class="text-slate-600 unique">املأ النموذج أدناه لإرسال إعلانك. سيتم مراجعته قبل النشر</p>
+            </div>
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-white mb-6"></h2>
+
+                    <form [formGroup]="adsForm" class="space-y-6" (ngSubmit)="submitAd()" novalidate>
+                        <div class="space-y-2">
+                            <label class="form-label" for="adCategory">فئة الإعلان *</label>
+                            <select class="form-input" id="adCategory" formControlName="category">
+                                <option value="design">🎨 التصميم والإبداع</option>
+                                <option value="programming">💻 البرمجة والتقنية</option>
+                                <option value="cleaning">🧽 شركات التنظيف</option>
+                                <option value="restaurants">🍽️ المطاعم والمأكولات</option>
+                                <option value="electronics">📱 الإلكترونيات</option>
+                                <option value="medical">🏥 الطبية والصحة</option>
+                                <option value="education">📚 التعليم والتدريب</option>
+                                <option value="automotive">🚗 السيارات والمركبات</option>
+                            </select>
+                            <small
+                                *ngIf="adsForm.get('category')?.errors?.['required'] && adsForm.get('category')?.dirty">
+                                فئة الإعلان مطلوبة
+                            </small>
+                        </div>
+
+                        <div class="space-y-3">
+                            <label class="form-label">نوع الإعلان</label>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <input id="regular" class="w-4 h-4" type="radio" value="regular"
+                                        formControlName="adType">
+                                    <label for="regular" class="flex items-center gap-2 text-slate-300">
+                                        <lucide-icon name="Star" size="14"></lucide-icon>
+                                        إعلان عادي (مجاني)
+                                    </label>
+                                </div>
+
+                                <div class="flex items-center gap-3">
+                                    <input id="vip" class="w-4 h-4" type="radio" value="vip" formControlName="adType">
+                                    <label for="vip" class="flex items-center gap-2 text-slate-300">
+                                        <lucide-icon name="Crown" size="14"></lucide-icon>
+                                        إعلان VIP (مميز بإطار ذهبي وأولوية في العرض)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="form-label">اللوجو</label>
+                            <div
+                                class="border-2 border-dashed border-slate-600 rounded-lg p-6 text-center hover-bg-slate-800 transition-colors">
+                                <input id="logo" accept="image/*" class="hidden" type="file"
+                                    (change)="onLogoSelected($event)">
+                                <label for="logo" class="cursor-pointer">
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="w-8 h-8 mx-auto mb-2 text-slate-400">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" x2="12" y1="3" y2="15"></line>
+                                    </svg> -->
+                                    <p class="text-sm text-slate-600" *ngIf="!logoFileName">اضغط لرفع اللوجو</p>
+                                    <p class="text-sm text-green-500 font-medium" *ngIf="logoFileName">
+                                        ✅ تم رفع : {{logoFileName }}
+                                    </p>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="name" class="form-label">اسم النشاط التجاري *</label>
+                            <input id="name" class="form-input" type="text" formControlName="businessName"
+                                autocomplete="organization">
+                            <small
+                                *ngIf="adsForm.get('businessName')?.errors?.['required'] && adsForm.get('businessName')?.dirty">اسم
+                                النشاط التجاري مطلوب
+                            </small>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="description" class="form-label">وصف النشاط</label>
+                            <textarea id="description" class="form-textarea" rows="3"
+                                formControlName="businessDescription"></textarea>
+                        </div>
+
+                        <div class="grid md-grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label for="phone" class="form-label">رقم الهاتف</label>
+                                <input id="phone" class="form-input" type="tel" formControlName="phoneNumber"
+                                    autocomplete="tel">
+                                <small
+                                    *ngIf="adsForm.get('phoneNumber')?.errors?.['pattern'] && adsForm.get('phoneNumber')?.dirty">
+                                    يجب إدخال رقم هاتف صالح
+                                </small>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="email" class="form-label">البريد الإلكتروني</label>
+                                <input id="email" class="form-input" type="email" formControlName="email"
+                                    autocomplete="email">
+                                <small *ngIf="adsForm.get('email')?.errors?.['email'] && adsForm.get('email')?.dirty">
+                                    يجب إدخال بريد إلكتروني صالح
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="website" class="form-label">الموقع الإلكتروني</label>
+                            <input id="website" class="form-input" type="url" formControlName="website">
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <input id="terms" class="w-4 h-4 mt-1" type="checkbox" formControlName="checkTerms"
+                                    required>
+                                <label for="terms" class="text-sm leading-relaxed text-slate-300">أوافق على الشروط
+                                    والأحكام وأتعهد بأن
+                                    إعلاني متوافق مع الشريعة الإسلامية ولا يحتوي على أي مخالفات شرعية أو محتوى غير
+                                    لائق
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-full">إرسال
+                            الإعلان</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

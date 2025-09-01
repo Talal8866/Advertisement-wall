@@ -1,0 +1,25 @@
+app-category-card {
+    cursor: pointer;
+}
+
+app-category-card:hover {
+    transform: scale(1.05) translateY(-0.25rem);
+}
+
+.circle {
+    --tw-bg-opacity: 1;
+    background-color: rgb(16 185 129 / var(--tw-bg-opacity, 1));
+}
+
+.number-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number {
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--slate-600);
+}

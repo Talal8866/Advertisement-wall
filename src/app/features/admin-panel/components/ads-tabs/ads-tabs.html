@@ -1,0 +1,13 @@
+<div class="tabs-list flex gap-2 top">
+    <button class="tabs-trigger" [ngClass]="{'active': activeTab === 'pending'}" (click)="clickOnTab('pending')">
+        في الانتظار
+    </button>
+
+    <button class="tabs-trigger" [ngClass]="{'active': activeTab === 'accepted'}" (click)="clickOnTab('accepted')">
+        مقبولة
+    </button>
+
+    <button class="tabs-trigger" [ngClass]="{'active': activeTab === 'rejected'}" (click)="clickOnTab('rejected')">
+        مرفوضة
+    </button>
+</div>

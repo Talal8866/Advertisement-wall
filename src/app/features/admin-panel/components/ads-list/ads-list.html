@@ -1,0 +1,9 @@
+<app-ad-card *ngFor="let ad of ads"
+ [ad]="ad" 
+ [status]="status"
+ (delete)="onDelete($event)"
+ (approve)="onApprove($event)"
+ (reject)="onReject($event)">
+</app-ad-card>
+
+<!-- recieving the emitted @output var from the child component(ad-card) as an event binding then assigning it to a method -->
